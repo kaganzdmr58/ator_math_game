@@ -1,0 +1,27 @@
+# Genel Flutter/Dart ayarları
+**/build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# Flutter spesifik dosyalar
+flutter_export_environment.sh
+.flutter-plugins
+
+# VS Code ayarları (opsiyonel)
+.vscode/
+
+# Android
+android/.gradle/
+android/app/build/
+android/local.properties
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/ServiceDefinitions.json
+ios/Runner.xcworkspace/
+ios/build/
