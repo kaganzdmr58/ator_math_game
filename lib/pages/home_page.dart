@@ -1,4 +1,5 @@
-import 'package:ator_math_game/pages/plus_one_page.dart';
+import 'package:ator_math_game/enums/page_type.dart';
+import 'package:ator_math_game/pages/base_game_page.dart';
 import 'package:ator_math_game/pages/settings_page.dart';
 import 'package:ator_math_game/utils/tools.dart';
 import 'package:ator_math_game/widgets/global_appbar.dart';
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar(),
+      appBar: CustomAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,14 +24,31 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                goto(context, PlusOnePage(title: title));
+                goto(
+                    context,
+                    BaseGamePage(
+                      title: title,
+                      pageType: PageType.plusTen,
+                    ));
               },
               child: const Text('Start Game'),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                goto(context, SettingsPage(title: title));
+                goto(
+                    context,
+                    BaseGamePage(
+                      title: title,
+                      pageType: PageType.minusTen,
+                    ));
+              },
+              child: const Text('Start Game Minus'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                goto(context, SettingsPage());
               },
               child: const Text('Settings'),
             ),

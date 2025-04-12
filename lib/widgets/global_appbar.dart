@@ -28,7 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 onPressed: () {
-                  goto(context, SettingsPage(title: title ?? ''));
+                  goto(context, SettingsPage());
                 },
                 icon: Icon(Icons.settings),
               ),
