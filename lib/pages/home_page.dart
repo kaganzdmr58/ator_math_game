@@ -22,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int score = 0;
   int state = 0;
   final random = Random();
+    Key countdownKey = UniqueKey();
 
   List<int> sayilar = [5, 10, 15, 20];
 
@@ -29,6 +30,8 @@ class _MyHomePageState extends State<MyHomePage> {
     firstNumber = (1 + random.nextInt(10)).toInt();
     secondNumber = (1 + random.nextInt(10)).toInt();
     result = firstNumber + secondNumber;
+    countdownKey = UniqueKey();
+
     setState(() {});
     seperateList();
   }
@@ -86,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -115,6 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   CountdownTimer(
+                      key: countdownKey,
                     seconds: 10,
                     state: state,
                     onFinished: () {
@@ -137,6 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: InkWell(
                   onTap: () {
                     generateRandomNumbers();
+                    state = 0;
                     setState(() {});
                   },
                   borderRadius: BorderRadius.circular(8),
