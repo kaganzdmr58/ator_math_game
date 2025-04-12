@@ -6,18 +6,18 @@
     "configurations": [
     
         {
-            "name": "tourist_balloon",
+            "name": "ator_math_game",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "tourist_balloon (profile mode)",
+            "name": "ator_math_game (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "tourist_balloon (release mode)",
+            "name": "ator_math_game (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
