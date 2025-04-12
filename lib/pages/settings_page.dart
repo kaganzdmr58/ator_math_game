@@ -12,35 +12,42 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final gameSettings = Provider.of<GameSettingsProvider>(context);
 
-
     return Scaffold(
       appBar: CustomAppBar(title: 'Ayarlar'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
           children: [
             Text(
               'Seçilen Seviye:',
               style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(
-              width: 200,
-              child: DropdownButton<GameType>(
-                value: gameSettings.selectedGameType,
-                isExpanded: true,
-                items: GameType.values.map((type) {
-                  return DropdownMenuItem<GameType>(
-                    value: type,
-                    child: Text(type.name),
-                  );
-                }).toList(),
-                onChanged: (GameType? newValue) {
-                  if (newValue != null) {
-                    gameSettings.setGameType(newValue);
-                  }
-                },
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Seçilen Seviye:',
+                  style: const TextStyle(fontSize: 20),
+                ),
+                SizedBox(
+                  width: 200,
+                  child: DropdownButton<GameType>(
+                    value: gameSettings.selectedGameType,
+                    isExpanded: true,
+                    items: GameType.values.map((type) {
+                      return DropdownMenuItem<GameType>(
+                        value: type,
+                        child: Text(type.name),
+                      );
+                    }).toList(),
+                    onChanged: (GameType? newValue) {
+                      if (newValue != null) {
+                        gameSettings.setGameType(newValue);
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),
