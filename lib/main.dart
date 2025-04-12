@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellowAccent),
       ),
-      home: const MyHomePage(title: 'Ator Math Game'),
+      home: const HomePage(title: 'Ator Math Game'),
     );
   }
 }
