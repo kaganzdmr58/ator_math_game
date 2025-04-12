@@ -4,16 +4,23 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         {
-            "name": "Flutter: Attach to Device",
-            "type": "dart",
-            "request": "attach"
+            "name": "tourist_balloon",
+            "request": "launch",
+            "type": "dart"
         },
         {
-            "name": "Flutter",
-            "type": "dart",
+            "name": "tourist_balloon (profile mode)",
             "request": "launch",
-            "program": "lib/main.dart"
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tourist_balloon (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
         
        
