@@ -2,12 +2,14 @@ import 'dart:math';
 
 import 'package:ator_math_game/enums/page_type.dart';
 import 'package:ator_math_game/providers/game_settings_provider.dart';
+import 'package:ator_math_game/utils/tools.dart';
 import 'package:ator_math_game/widgets/count_down_timer.dart';
 import 'package:ator_math_game/widgets/false_animation.dart';
 import 'package:ator_math_game/widgets/global_appbar.dart';
 import 'package:ator_math_game/widgets/half_button.dart';
 import 'package:ator_math_game/widgets/true_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class BaseGamePage extends StatefulWidget {
@@ -47,6 +49,7 @@ class _BaseGamePageState extends State<BaseGamePage> {
       showTruePopup(true);
     } else {
       minusScore++;
+      vibrate(duration: 500);
       showTruePopup(false);
     }
     state = 1;
@@ -106,7 +109,7 @@ class _BaseGamePageState extends State<BaseGamePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
+                  /* SizedBox(
                     width: 82,
                     child: Align(
                       alignment: Alignment.centerLeft,
@@ -139,10 +142,36 @@ class _BaseGamePageState extends State<BaseGamePage> {
                         icon: const Icon(Icons.info_outline, size: 32),
                       ),
                     ),
-                  ),
-                  Text(
-                    "$score",
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                  ), */
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: Colors.amber,
+                        width: 2,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Row(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.trophy,
+                            size: 24,
+                            color: Colors.amber,
+                          ),
+                          Text(
+                            "   $score",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.amber,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   CountdownTimer(
                     key: countdownKey,

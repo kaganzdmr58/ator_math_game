@@ -1,6 +1,7 @@
 import 'package:ator_math_game/admob/interstitial_ad_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vibration/vibration.dart';
 
 String capitalizeFirstLetter(String text) {
   if (text.isEmpty) return text;
@@ -52,4 +53,16 @@ gotoWithAd(BuildContext context, Widget page, {bool isReplace = false}) {
 gotoReplace(BuildContext context, Widget page) {
   Navigator.pushReplacement(
       context, MaterialPageRoute(builder: (context) => page));
+}
+
+void vibrate({int duration = 300})async {
+  try {
+    if (await Vibration.hasVibrator() == true) {
+      Vibration.vibrate(duration: duration);
+    } else {
+      print('Titreşim desteği yok.');
+    }
+  } catch (e) {
+    print('Vibration error: $e');
+  }
 }
