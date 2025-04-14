@@ -62,7 +62,7 @@ class _BaseGamePageState extends State<BaseGamePage> {
   }
 
   int randomNumber() {
-    int yeniSayi = (1 + random.nextInt(20)).toInt();
+    int yeniSayi = (1 + random.nextInt(20)).toInt() * (result > 0 ? 1 : -1);
     if (sayilar.contains(yeniSayi)) {
       return randomNumber();
     } else {
@@ -109,6 +109,9 @@ class _BaseGamePageState extends State<BaseGamePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(
+                    width: 82,
+                  ),
                   /* SizedBox(
                     width: 82,
                     child: Align(
@@ -143,34 +146,24 @@ class _BaseGamePageState extends State<BaseGamePage> {
                       ),
                     ),
                   ), */
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: Colors.amber,
-                        width: 2,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.trophy,
-                            size: 24,
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.trophy,
+                          size: 48,
+                          color: Colors.amber,
+                        ),
+                        Text(
+                          "   $score",
+                          style: TextStyle(
+                            fontSize: 48,
+                            fontWeight: FontWeight.bold,
                             color: Colors.amber,
                           ),
-                          Text(
-                            "   $score",
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.amber,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   CountdownTimer(
@@ -201,10 +194,25 @@ class _BaseGamePageState extends State<BaseGamePage> {
                     setState(() {});
                   },
                   borderRadius: BorderRadius.circular(8),
-                  child: SizedBox(
+                  child: Container(
                     width: 80,
                     height: 50,
-                    child: Icon(Icons.skip_next_rounded, size: 50),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Icon(
+                      Icons.skip_next_rounded,
+                      size: 50,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
